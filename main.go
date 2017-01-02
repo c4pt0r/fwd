@@ -109,7 +109,8 @@ func doClient(srvAddr string, srcPort, dstPort int, desc string) error {
 				// create tunnel
 				tc, err := net.Dial("tcp", srvAddr)
 				if err != nil {
-					return err
+					log.Error(err)
+					return
 				}
 
 				b := make([]byte, 8)
